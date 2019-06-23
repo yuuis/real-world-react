@@ -1,12 +1,14 @@
-import agent from '../agent';
 import React from 'react';
-import Header from './Header';
-import '../App.css';
 import { connect } from 'react-redux';
-import {APP_LOAD, REDIRECT} from "../constants/actionTypes";
 import { Route, Switch } from 'react-router-dom';
-import { store } from '../store';
 import { push } from 'react-router-redux';
+import Header from './Header';
+import {APP_LOAD, REDIRECT} from "../constants/actionTypes";
+import { store } from '../store';
+import agent from '../agent';
+import Login from '../components/Login';
+import Register from '../components/Register';
+import Settings from '../components/Settings';
 
 const mapStateToProps = state => {
   return {
@@ -44,15 +46,9 @@ class App extends React.Component {
             appName={this.props.appName}
             currentUser={this.props.currentUser} />
             <Switch>
-              <Route exact path="/" component={Home}/>
               <Route path="/login" component={Login}/>
               <Route path="/register" component={Register} />
-              <Route path="/editor/:slug" component={Editor} />
-              <Route path="/editor" component={Editor} />
-              <Route path="/article/:id" component={Article} />
               <Route path="/settings" component={Settings} />
-              <Route path="/@:username/favorites" component={ProfileFavorites} />
-              <Route path="/@:username" component={Profile} />
             </Switch>
         </div>
       )

@@ -1,8 +1,8 @@
+import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ListErrors from './ListErrors';
-import React from 'react';
 import agent from '../agent';
-import { connect } from 'react-redux';
 import {
   UPDATE_FIELD_AUTH,
   REGISTER,
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: (username, email, password) => {
     const payload = agent.Auth.regster(username, email, password);
     dispatch({ type: REGISTER, payload })
-  }
+  },
+  onUnload: () => dispatch({ type: REGISTER_PAGE_UNLOADED })
 });
 
 class Register extends React.Component {

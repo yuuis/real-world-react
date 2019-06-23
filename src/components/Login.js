@@ -1,9 +1,8 @@
-import {UPDATE_FIELD_AUTH} from "../constants/actionTypes";
+import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ListErrors from './ListErrors';
-import React from 'react';
 import agent from '../agent';
-import { connect } from 'react-redux';
 import { UPDATE_FIELD_AUTH, LOGIN, LOGIN_PAGE_UNLOADED } from '../constants/actionTypes';
 
 
@@ -74,8 +73,9 @@ class Login extends React.Component {
                   <button
                     className="btn btn-lg btn-primary pull-xs-right"
                     type="submit"
-                    disabled={this.props.inProgress}
-                    sign in />
+                    disabled={this.props.inProgress} >
+                    sign in
+                  </button>
                 </fieldset>
 
               </form>
