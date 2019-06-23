@@ -11,7 +11,11 @@ export const history = createHistory();
 const myRouterMiddleware = routerMiddleware(history);
 
 const getMiddleware = () => {
-  return applyMiddleware(myRouterMiddleware, promiseMiddleware, localStorageMiddleware, createLogger())
+  if (process.env.NODE_ENV  === 'production') {
+    return applyMiddleware(myRouterMiddleware, promiseMiddleware, localStorageMiddleware);
+  } else {
+    return applyMiddleware(myRouterMiddleware, promiseMiddleware, localStorageMiddleware, createLogger);
+  }
 };
 
 export const store = createStore(reducer, composeWithDevTools(getMiddleware()));
