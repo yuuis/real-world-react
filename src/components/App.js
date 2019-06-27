@@ -9,6 +9,7 @@ import agent from '../agent';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import Settings from '../components/Settings';
+import Profile from '../components/Profile';
 
 const mapStateToProps = state => {
   return {
@@ -49,6 +50,7 @@ class App extends React.Component {
               <Route path="/login" component={Login}/>
               <Route path="/register" component={Register} />
               <Route path="/settings" component={Settings} />
+              <Route path="/@:username" component={Profile} />
             </Switch>
         </div>
       )
